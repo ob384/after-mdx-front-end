@@ -10,16 +10,12 @@ module.exports = {
         'lg': '1024px', // Large devices (desktops, starting from 1024px)
         'xl': '1280px', // Extra large devices (large desktops, starting from 1280px)
         '2xl': '1536px' // 2XL large devices (larger desktops, starting from 1536px)
+      },
+      colors: {
+        red: "#ED1C24",
+        blue:"#2F2552",
       }
     },
-    colors: {
-      transparent: 'transparent',
-      white: '#ffffff',
-      red: "#D90404",
-      skyblue: "#05DBF2",
-      darkblue: "#033E8C",
-      black:"#0D0D0D"
-    }
   },
   plugins: [
     // require('@tailwindcss/forms')
