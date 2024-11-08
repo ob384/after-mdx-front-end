@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "tw-watch": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch"
+    "tw-watch": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
+    "sass-watch": "sass --watch ./public/scss/main.scss:./public/css/main.css"
   },
   "author": "",
   "license": "ISC",
