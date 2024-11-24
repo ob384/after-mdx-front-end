@@ -16,7 +16,7 @@
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="bg-black flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="./index.html" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
             <img class="h-8 w-auto" src="./images/logo.png" alt="">
           </a>
@@ -31,9 +31,9 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <a href="#" class="text-sm font-semibold leading-6 text-white">About</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Courses</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Teachers</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white hover:text-red-500">About</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Courses</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Teachers</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
           <a href="#"
@@ -174,15 +174,15 @@
     
     <!-- All Courses  -->
     <section class=" px-20 py-24 mx-auto">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center mb-3">
         
         <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Our Courses</h1>
-        <div class="px-20 flex items-center">
+        <div class="flex items-center">
           <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
           </span>
-          <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Ascending</span>
-          <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Descending</span>
+          <span @click="orderToggle" class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 order-control">Ascending</span>
+          <span @click="orderToggle" class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 order-control">Descending</span>
           <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Course Name</span>
           <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Location</span>
           <span class="cursor-pointer mx-1 inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Price</span>
