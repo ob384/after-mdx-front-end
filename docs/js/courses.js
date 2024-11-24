@@ -9,6 +9,12 @@ let app = new Vue({
     searchMode: false
   },
   methods: {
+    previousCoursePage(){
+      this.currentPage= this.currentPage>=1 && this.currentPage<= this.pages.length-1 ? this.currentPage-=1 : this.currentPage;
+    },
+    nextCoursePage(){
+      this.currentPage= this.currentPage>=0 && this.currentPage<= this.pages.length-2 ? this.currentPage+=1 : this.currentPage;
+    },
     searchModeToggle(){
       this.searchMode = !this.searchMode
     },
@@ -44,7 +50,8 @@ let app = new Vue({
           this.pages.push(page)
         }
       }
-    }
+    },
+
   },
   beforeMount() {
     fetch("api/courses/trending").then((res)=>(res.json())).then((data)=>{this.trendingCourses = data});
