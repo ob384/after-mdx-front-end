@@ -4,7 +4,13 @@ let app = new Vue({
     loggedIn: false,
     trendingCourses: [],
     pages: [],
-    currentPage: 1
+    currentPage: 1,
+    searchMode: false
+  },
+  methods: {
+    searchModeToggle(){
+      this.searchMode = !this.searchMode
+    }
   },
   beforeMount() {
     fetch("api/courses/trending").then((res)=>(res.json())).then((data)=>{this.trendingCourses = data});
