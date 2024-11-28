@@ -5,6 +5,6 @@ let app = new Vue({
     trendingCourses: [], 
   },
   beforeMount(){
-    fetch("api/courses/trending").then((res)=>(res.json())).then((d) => this.trendingCourses = [...d]);
+    fetch("https://after-mdx-backend.onrender.com/api/courses/trending").then((res)=>(res.json())).then((d) => this.trendingCourses = [...d]);
   }
 });

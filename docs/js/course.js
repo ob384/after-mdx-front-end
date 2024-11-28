@@ -6,7 +6,8 @@ let app = new Vue({
     data() {
       return {
         loggedIn: false,
-        courseDetails : {} 
+        courseDetails : {},
+        cartMessage: "Add to Cart"
     }
   },
   methods: {
