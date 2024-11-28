@@ -29,19 +29,24 @@
         <form class="mt-10 grid grid-cols-1 gap-y-8" action="/signup" method="post">
           <div>
             <label for=":S2:" class="mb-3 block text-sm font-medium text-gray-700">First name</label>
-            <input id=":S2:" type="text" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="fname" />
+            <input id=":S2:" v-model="fname" type="text" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="fname" />
+            <p class="text-red-500 hover:text-red-900">{{fnameErrot}}</p>
           </div>
           <div>
             <label for=":S2:" class="mb-3 block text-sm font-medium text-gray-700">Last name</label>
-            <input id=":S2:" type="text" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="lname" />
+            <input id=":S2:" v-model="lname" type="text" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="lname" />
+            <p class="text-red-500 hover:text-red-900">{{lnameError}}</p>
           </div>
+
           <div>
             <label for=":S1:" class="mb-3 block text-sm font-medium text-gray-700">Email address (MDX email)</label>
-            <input id=":S1:" type="email" autocomplete="email" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="email" />
+            <input id=":S1:" v-model="email" type="email" autocomplete="email" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="email" />
+            <p class="text-red-500 hover:text-red-900">{{emailError}}</p>
           </div>
           <div>
             <label for=":S2:" class="mb-3 block text-sm font-medium text-gray-700">Password</label>
-            <input id=":S2:" type="password" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="password" />
+            <input id=":S2:" v-model.trim="password" @input="verifyPassword" type="password" required="" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="password" />
+            <p class="text-red-500 hover:text-red-900">{{passwordError}}</p>
           </div>
   
           <div>
