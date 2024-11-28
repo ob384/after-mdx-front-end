@@ -15,7 +15,7 @@ let app = new Vue({
   },
   
   mounted() {
-    fetch(`api/courses/${window.location.href.split("=")[1]}`).then((res)=>(res.json())).then((data) => { this.$set(this, 'courseDetails', data); });
+    fetch(`https://after-mdx-backend.onrender.com/api/courses/${window.location.href.split("=")[1]}`).then((res)=>(res.json())).then((data) => { this.$set(this, 'courseDetails', data); });
     
   }, 
 })
