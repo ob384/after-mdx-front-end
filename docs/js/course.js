@@ -20,11 +20,3 @@ let app = new Vue({
     
   }, 
 })
-
-let notLoggeIn  = !app._data.loggedIn
-
-// app._data.loggedIn = notLoggeIn
-
-// app._data.loggedIn = !notLoggeIn
-
-// eval(`app._data.loggedIn = ${notLoggeIn}`);
