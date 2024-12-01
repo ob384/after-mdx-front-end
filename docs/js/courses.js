@@ -165,7 +165,7 @@ let app = new Vue({
     },
     search(){
 
-      fetch(`https://after-mdx-backend.onrender.com//api/search/courses?course-name=${this.searchValue}`).then(res=>res.json()).then(d => {
+      fetch(`https://after-mdx-backend.onrender.com/api/search/courses?course-name=${this.searchValue}`).then(res=>res.json()).then(d => {
         // console.log(d)
         if (d.length){
           // this.searchResult = d;

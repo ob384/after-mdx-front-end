@@ -23,10 +23,10 @@
         </h2>
         <p class="mt-2 text-sm text-gray-700">
           Don’t have an account?<!-- -->
-          <a class="font-medium text-blue-600 hover:underline" href="/register">Sign up</a>
+          <a class="font-medium text-blue-600 hover:underline" href="./signup.html">Sign up</a>
           <!-- -->for a free trial.
         </p>
-        <form @submit.prevent="signUp" class="mt-10 grid grid-cols-1 gap-y-8" action="/signup" method="post">
+        <form @submit.prevent="signUp" class="mt-10 grid grid-cols-1 gap-y-8" action="https://after-mdx-backend.onrender.com/signup" method="post">
           <div>
             <label for=":S2:" class="mb-3 block text-sm font-medium text-gray-700">First name</label>
             <input id=":S2:" v-model.trim="fname" @input="verifyFName" type="text" required="true" class="block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 sm:text-sm" name="fname" />
