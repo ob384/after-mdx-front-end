@@ -9,7 +9,8 @@ let app = new Vue({
     searchMode: false,
     searchErrorMessage: "Search Something",
     searchValue :'',
-    searchResult: []
+    searchResult: [],
+    cart: JSON.parse(sessionStorage.getItem('cart')) || [],
   },
   methods: {
     previousCoursePage(){
@@ -177,6 +178,36 @@ let app = new Vue({
         }
       })
 
+    },
+    addToCart(course) {
+      // Check if the course is already in the cart
+      if (course.availableSpaces > 0) {
+        // Find if the course is already in cart
+        const inCart = this.cart.find(item => item.id === course.id);
+        
+        if (inCart) {
+          // If in cart, increase quantity
+          inCart.quantity += 1;
+        } else {
+          // If not in cart, add new item with quantity 1
+          this.cart.push({ 
+            ...course, 
+            quantity: 1 
+          });
+        }
+        
+        // Decrease available spaces
+        course.availableSpaces -= 1;
+        
+        // Store updated cart in sessionStorage
+        sessionStorage.setItem('cart', JSON.stringify(this.cart));
+        
+        // Optional: Show success message
+        alert(`${course.name} added to cart!`);
+      } else {
+        // Optional: Show error if no spaces available
+        alert('Sorry, no spaces available for this course.');
+      }
     }
   },
   beforeMount() {

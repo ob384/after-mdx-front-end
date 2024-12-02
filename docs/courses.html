@@ -136,27 +136,38 @@
           <div class="px-6 py-3 font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400">${{course.price}}</div>
           <div class="px-6  font-display text-base text-slate-900">{{course.name}}</div>
           <div class="px-6 py-3 mt-1 text-sm text-slate-500">{{course.location}}</div>
-          <div class="flex items-center flex-wrap px-6 py-3">
-            <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+          
+          <div class="flex justify-between my-2 px-6 py-3">
+            <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Details
               <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </a>
-            <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>1.2K
-            </span>
-            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-              </svg>6
-            </span>
-          </div>
+
+            <div class="flex">              
+              <div class="mt-1 mx-2 text-sm text-slate-500 px-6 flex items-center">
+                <i class="ri-user-follow-line"></i>
+                <span>{{course.availableSpaces}}</span>
+              </div>
+
+              <div class=" mx-2">
+                <button @click="addToCart(course)" href="#" class="block rounded-md mx-6 bg-red-600 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <i class="ri-shopping-cart-line"></i>
+                </button>
+              </div>
+            </div>
+
         </div>
         <!-- End of card -->
+
+
+      </div>
+      <!-- End of scroll view -->
+
+
+      </div>
+      <!-- End of scroll view -->
 
       </div>
       <!-- End of scroll view -->
@@ -192,40 +203,42 @@
    
       <div class="grid grid-cols-4 gap-y-5 gap-3">     
         <!-- Course card -->
-        <div v-for="course in pages[currentPage]"  class="card relarive rounded-2xl bg-white  shadow-md shadow-slate-900/10 w-full min-w-full max-w-full block mr-4">
+
+        <div class="card relarive rounded-2xl bg-white  shadow-md shadow-slate-900/10 min-w-80 max-w-80 block mr-4" v-for="course in pages[currentPage]">
           <figure>
             <img src="https://after-mdx-backend.onrender.com/images/placeholder.png" class="w-full" alt="" srcset="">
           </figure>
           <div class="px-6 py-3 font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400">${{course.price}}</div>
           <div class="px-6  font-display text-base text-slate-900">{{course.name}}</div>
           <div class="px-6 py-3 mt-1 text-sm text-slate-500">{{course.location}}</div>
-          <div class="flex items-center flex-wrap px-6 py-3">
-            <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
+          
+          <div class="flex justify-between my-2 px-6 py-3">
+            <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Details
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </a>
-            <span
-              class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>1.2K
-            </span>
-            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-              <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" viewBox="0 0 24 24">
-                <path
-                  d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                </path>
-              </svg>6
-            </span>
-          </div>
+
+            <div class="flex">              
+              <div class="mt-1 mx-2 text-sm text-slate-500 px-6 flex items-center">
+                <i class="ri-user-follow-line"></i>
+                <span>{{course.availableSpaces}}</span>
+              </div>
+
+              <div class=" mx-2">
+                <button @click="addToCart(course)" href="#" class="block rounded-md mx-6 bg-red-600 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <i class="ri-shopping-cart-line"></i>
+                </button>
+              </div>
+            </div>
+
         </div>
         <!-- End of card -->
+
+
+      </div>
+      <!-- End of scroll view -->
         
       </div>
     </section>
