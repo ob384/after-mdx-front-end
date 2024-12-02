@@ -45,7 +45,7 @@ let app = new Vue({
           space: v.quantity, 
           }
       })
-      console.log(this.orderObject)
+      console.log(order)
       return JSON.stringify(order)
     }
 
