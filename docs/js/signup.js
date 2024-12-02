@@ -51,7 +51,7 @@ let app = new Vue({
       this.verifyLName();
       this.verifyEmail();
       this.verifyPassword();
-      alert("Your username would be the be the first part of your email e.g ab123 if your email is ab123@live.mdx.ac.uk")
+      alert("Your username would be the be the first part of your email e.g ab123 if email is ab123@live.mdx.uk")
       event.target.submit(); 
     }
   },
