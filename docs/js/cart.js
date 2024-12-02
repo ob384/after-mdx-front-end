@@ -19,8 +19,9 @@ let app = new Vue({
       }
     },
 
-    removeFromCart(course){
-      this.cart = cart.filter((value,index) => cart[index] !== value);
+    removeFromCart(course) {
+      this.cart = this.cart.filter(item => item.id !== course.id);
+      sessionStorage.setItem('cart', JSON.stringify(this.cart)); // Update session storage
     },
   },
 })

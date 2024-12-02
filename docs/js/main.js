@@ -27,7 +27,8 @@ let app = new Vue({
             name: course.name,
             price: course.price,
             quantity: 1,
-            location: course.location
+            location: course.location,
+            availableSpaces: course.availableSpaces
           });
         }
   
@@ -43,7 +44,7 @@ let app = new Vue({
         // No spaces available
         alert('Sorry, no spaces available for this course.');
       }
-    } 
+    }  
   },
   beforeMount(){
     fetch("https://after-mdx-backend.onrender.com/api/courses/trending").then((res)=>(res.json())).then((d) => this.trendingCourses = [...d]);
