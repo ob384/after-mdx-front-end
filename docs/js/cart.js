@@ -24,4 +24,13 @@ let app = new Vue({
       sessionStorage.setItem('cart', JSON.stringify(this.cart)); // Update session storage
     },
   },
+  computed: {
+    totalPrice(){
+      let total = 0;
+      this.cart.map((v)=>{
+        total+=v.price
+      })
+    }
+  },
+  
 })
