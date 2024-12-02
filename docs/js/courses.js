@@ -194,7 +194,7 @@ let app = new Vue({
           existingCartItem.quantity += 1;
         } else {
           // If course is not in cart, add new item
-          this.cart.push({
+          this.cart.unshift({
             _id: course._id,
             name: course.name,
             price: course.price,
