@@ -22,10 +22,6 @@ let app = new Vue({
         alert(" added to cart!");
       }
   
-      
-  
-      // Optional: Add some user feedback
-      this.$toast.success(`${courseToAdd.name} added to cart`);
   
       // Optional: Persist cart to localStorage
       localStorage.setItem('cart', JSON.stringify(this.cart));
