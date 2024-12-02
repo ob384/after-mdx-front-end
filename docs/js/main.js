@@ -10,19 +10,32 @@ let app = new Vue({
   methods: {
     addToCart(course) {
       // Check if the course is already in the cart
-      if (course.space > 0) {
-        course.space -= 1;
+      if (course.availableSpaces > 0) {
+        // Find if the course is already in cart
         const inCart = this.cart.find(item => item.id === course.id);
         
         if (inCart) {
+          // If in cart, increase quantity
           inCart.quantity += 1;
         } else {
-          this.cart.push({ ...course, quantity: 1 });
+          // If not in cart, add new item with quantity 1
+          this.cart.push({ 
+            ...course, 
+            quantity: 1 
+          });
         }
         
-        // Store cart in sessionStorage
+        // Decrease available spaces
+        course.availableSpaces -= 1;
+        
+        // Store updated cart in sessionStorage
         sessionStorage.setItem('cart', JSON.stringify(this.cart));
-        alert("Added to cart!");
+        
+        // Optional: Show success message
+        alert(`${course.name} added to cart!`);
+      } else {
+        // Optional: Show error if no spaces available
+        alert('Sorry, no spaces available for this course.');
       }
     }
   },
