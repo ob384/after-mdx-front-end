@@ -26,5 +26,10 @@ let app = new Vue({
         
       }
     },
+    login(){
+      this.verifyEmail();
+      this.verifyPassword();
+      event.target.submit(); 
+    }
   },
 })
