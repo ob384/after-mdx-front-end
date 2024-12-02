@@ -43,6 +43,7 @@ let app = new Vue({
           course: v.name ,
           price: v.price, 
           space: v.quantity, 
+          totalPrice: v.quantity*v.price
           }
       })
       console.log(order)
