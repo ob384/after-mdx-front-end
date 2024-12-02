@@ -27,7 +27,7 @@
           <a class="font-medium text-blue-600 hover:underline" href="./signup.html">Sign up</a>
           <!-- -->for a free trial.
         </p>
-        <form @submit.prevent="login" class="mt-10 grid grid-cols-1 gap-y-8" action="https://after-mdx-backend.onrender.com/login">
+        <form @submit.prevent="login" class="mt-10 grid grid-cols-1 gap-y-8" action="https://after-mdx-backend.onrender.com/login" method="post">
           <div>
             <label for=":S1:" class="mb-3 block text-sm font-medium text-gray-700">Email address</label><input id=":S1:"
               type="email" autocomplete="email" required="true" v-model.trim="email" @input="verifyEmail"
