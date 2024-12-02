@@ -102,6 +102,15 @@
             </div>
             <!-- Checkout -->
             <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
+              <div class="col-span-3">
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Full name</label>
+                <input v-model.trim="fullname"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required  type="text" name="fullname"/>
+
+
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Phone Number</label>
+                <input v-model.trim="phone"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" type="tel" required name="phone"/>
+                <input v-model.trim="orderObj"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 hidden" placeholder="" type="tel" required name="orderObj" />
+            </div>
               <button type="button" class="flex w-full items-center justify-center rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-medium text-white">Checkout</button>
             </div>
           </div>
