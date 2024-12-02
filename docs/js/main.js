@@ -4,27 +4,26 @@ let app = new Vue({
     loggedIn: false,
     trendingCourses: [], 
     username: '',
-    cart : [],
+    cart: JSON.parse(sessionStorage.getItem('cart')) || [],
     // cartSize: this.cart.length
   },
   methods: {
     addToCart(course) {
       // Check if the course is already in the cart
-      if (course.space>0) {
-        course.space -=1
+      if (course.space > 0) {
+        course.space -= 1;
         const inCart = this.cart.find(item => item.id === course.id);
+        
         if (inCart) {
-          inCart.quantity += 1
+          inCart.quantity += 1;
         } else {
-          this.cart.push({ ...param, quantity: 1 });
+          this.cart.push({ ...course, quantity: 1 });
         }
+        
+        // Store cart in sessionStorage
         sessionStorage.setItem('cart', JSON.stringify(this.cart));
-        alert(" added to cart!");
+        alert("Added to cart!");
       }
-  
-  
-      // Optional: Persist cart to localStorage
-      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
   },
   beforeMount(){
