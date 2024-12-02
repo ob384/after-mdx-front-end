@@ -33,7 +33,7 @@
           <a href="#" class="text-sm font-semibold leading-6 text-white hover:text-red-500">About</a>
           <a href="./courses.html" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Courses</a>
           <a href="#" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Teachers</a>
-          <a href="#" v-if="loggedIn" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Cart({{cartSize}})</a>
+          <a href="#" v-if="cartSize" class="text-sm font-semibold leading-6 text-white hover:text-red-500">Cart({{cartSize}})</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center">
           <a v-if="!username" href="./login.html" class="px-3.5 py-2.5 border-2 border-red-500 rounded-md mx-1.5 text-sm font-semibold leading-6 text-red-500 hover:text-white hover:bg-red-500">Log in </a>
