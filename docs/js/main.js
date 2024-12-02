@@ -5,7 +5,7 @@ let app = new Vue({
     trendingCourses: [], 
     username: '',
     cart : [],
-    cartSize: this.cart.length
+    // cartSize: this.cart.length
   },
   methods: {
     addToCart(course) {
