@@ -33,11 +33,16 @@ let app = new Vue({
       return total;
     },
     orderObject(){
-      let obj = {}
+      // let obj = {}
       let order = []
       this.cart.forEach((v,i)=>{
-        order[i] = {course: v.name ,price: v.price, space: v.quantity, time: new Date()}
+        order[i] = {
+          course: v.name ,
+          price: v.price, 
+          space: v.quantity, 
+          }
       })
+      console.log(this.orderObject)
       return JSON.stringify(order)
     }
 
