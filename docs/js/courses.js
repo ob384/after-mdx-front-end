@@ -199,7 +199,8 @@ let app = new Vue({
             name: course.name,
             price: course.price,
             quantity: 1,
-            location: course.location
+            location: course.location,
+            availableSpaces: course.availableSpaces
           });
         }
   
