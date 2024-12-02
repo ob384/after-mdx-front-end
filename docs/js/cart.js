@@ -26,6 +26,16 @@ let app = new Vue({
       this.cart = this.cart.filter(item => item.id !== course.id);
       sessionStorage.setItem('cart', JSON.stringify(this.cart)); // Update session storage
     },
+    verifyPhone(){
+      if (!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(this.phone)) {
+        alert("Please enter a valid phone number")
+        throw new Error("Please enter a valid phone number")
+      } 
+    },
+    checkout(){
+      this.verifyPhone()
+      event.target.submit()
+    }
   },
   computed: {
     totalPrice(){
