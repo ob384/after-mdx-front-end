@@ -181,23 +181,41 @@ let app = new Vue({
     },
     
     addToCart(course) {
+      // Ensure we're working with a valid course
+      if (!course) return;
+  
+      // Check if spaces are available
       if (course.availableSpaces > 0) {
-        const inCart = this.cart.find(item => item.id === course.id);
-        if (inCart) {
-          inCart.quantity += 1;
+        // Find if the course is already in cart
+        const existingCartItem = this.cart.find(item => item._id === course._id);
+  
+        if (existingCartItem) {
+          // If course exists, increment quantity
+          existingCartItem.quantity += 1;
         } else {
+          // If course is not in cart, add new item
           this.cart.push({
-            ...course,
+            _id: course._id,
+            name: course.name,
+            price: course.price,
             quantity: 1,
+            location: course.location
           });
         }
-        course.availableSpaces -= 1; // Decrease available spaces
-        sessionStorage.setItem('cart', JSON.stringify(this.cart)); // Update cart in storage
+  
+        // Decrease available spaces
+        course.availableSpaces -= 1;
+  
+        // Update cart in session storage
+        sessionStorage.setItem('cart', JSON.stringify(this.cart));
+  
+        // Optional: Provide feedback
         alert(`${course.name} added to cart!`);
       } else {
+        // No spaces available
         alert('Sorry, no spaces available for this course.');
       }
-    },
+    }  
   },
   beforeMount() {
     fetch("https://after-mdx-backend.onrender.com/api/courses/trending").then((res)=>(res.json())).then((data)=>{this.trendingCourses = data});
@@ -211,13 +229,3 @@ let app = new Vue({
 });
 
 
-const people = [
-  { name: 'Charlie', age: 20 },
-  { name: 'Bob', age: 30 },
-  { name: 'Alice', age: 25 },
-];
-
-// Sort by name in alphabetical order
-people.sort((a, b) => {
-  return a.name.localeCompare(b.name);
-});
