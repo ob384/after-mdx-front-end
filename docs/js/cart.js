@@ -3,7 +3,10 @@ let app = new Vue({
   data() {
     return {
       loggedIn: false,
-      cart: JSON.parse(sessionStorage.getItem('cart')) || []
+      cart: JSON.parse(sessionStorage.getItem('cart')) || [],
+      phone: '',
+      fullname:'',
+
     }
   },
   methods: {
@@ -32,7 +35,7 @@ let app = new Vue({
       });
       return total;
     },
-    orderObject(){
+    orderObj(){
       // let obj = {}
       let order = []
       this.cart.forEach((v,i)=>{
