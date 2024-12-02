@@ -13,8 +13,6 @@
 
   
   <main id="app">
-   
-    <!-- Navigation -->
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="bg-black flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
@@ -81,7 +79,6 @@
     </header>
     <!-- End of Navigation -->
 
-    <!-- Hero Section -->
     <section class="bg-blue-500">
       <div class="relative isolate px-6 pt-14 lg:px-8">
         <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -124,19 +121,17 @@
     </section>
     <!-- End of Hero Section -->
 
-
-    <!-- Trending Courses -->
-    <section class=" px-20 py-24 mx-auto flex flex-col">
+    <!-- Trending Courses Section -->
+    <section class="px-20 py-24">
       <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Trending Courses</h1>
       <div class="overflow-x-scroll py-3 w-full flex flex-nowrap no-scrollbar">
-        <div class="card relarive rounded-2xl bg-white  shadow-md shadow-slate-900/10 min-w-80 max-w-80 block mr-4" v-for="course in trendingCourses">
+        <div class="card relarive rounded-2xl bg-white shadow-md shadow-slate-900/10 min-w-80 max-w-80 block mr-4" v-for="course in trendingCourses" :key="course.id">
           <figure>
-            <img src="https://after-mdx-backend.onrender.com/images/placeholder.png" class="w-full" alt="" srcset="">
+            <img src="https://after-mdx-backend.onrender.com/images/placeholder.png" class="w-full" alt="">
           </figure>
-          <div class="px-6 py-3 font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400">${{course.price}}</div>
-          <div class="px-6  font-display text-base text-slate-900">{{course.name}}</div>
+          <div class="px-6 py-3 font-mono text-xs/5 font-semibold uppercase text-gray-500">${{course.price}}</div>
+          <div class="px-6 font-display text-base text-slate-900">{{course.name}}</div>
           <div class="px-6 py-3 mt-1 text-sm text-slate-500">{{course.location}}</div>
-          
           <div class="flex justify-between my-2 px-6 py-3">
             <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Details
               <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -144,42 +139,25 @@
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </a>
-
-            <div class="flex">              
+            <div class="flex">
               <div class="mt-1 mx-2 text-sm text-slate-500 px-6 flex items-center">
                 <i class="ri-user-follow-line"></i>
                 <span>{{course.availableSpaces}}</span>
               </div>
-
-              <div class=" mx-2">
-                <button @click="addToCart(course)" href="#" class="block rounded-md mx-6 bg-red-600 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <div class="mx-2">
+                <button @click="addToCart(course)" class="block rounded-md mx-6 bg-red-600 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   <i class="ri-shopping-cart-line"></i>
                 </button>
               </div>
             </div>
-
+          </div>
         </div>
-        <!-- End of card -->
-
-
       </div>
-      <!-- End of scroll view -->
-
-
-      </div>
-      <!-- End of scroll view -->
-
-      </div>
-      <!-- End of scroll view -->
     </section>
-    <!-- End of Trending Courses -->
 
-    
-    
-    <!-- All Courses  -->
+    <!-- All courses -->
     <section class=" px-20 py-24 mx-auto">
-      <div class="flex justify-between items-center mb-3">
-        
+      <div class="flex justify-between items-center mb-3">        
         <h1 class="title-font font-medium text-xl mb-2 text-gray-900">Our Courses</h1>
         <!-- Badges -->
         <div class="flex items-center">
@@ -201,45 +179,19 @@
         </div>
       </div>
    
-      <div class="grid grid-cols-4 gap-y-5 gap-3">     
-        <!-- Course card -->
-
-        <div class="card relarive rounded-2xl bg-white  shadow-md shadow-slate-900/10 min-w-80 max-w-80 block mr-4" v-for="course in pages[currentPage]">
-          <figure>
-            <img src="https://after-mdx-backend.onrender.com/images/placeholder.png" class="w-full" alt="" srcset="">
-          </figure>
-          <div class="px-6 py-3 font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400">${{course.price}}</div>
-          <div class="px-6  font-display text-base text-slate-900">{{course.name}}</div>
-          <div class="px-6 py-3 mt-1 text-sm text-slate-500">{{course.location}}</div>
-          
-          <div class="flex justify-between my-2 px-6 py-3">
-            <a :href="'./course.html?id='+course._id" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Details
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-
-            <div class="flex">              
-              <div class="mt-1 mx-2 text-sm text-slate-500 px-6 flex items-center">
-                <i class="ri-user-follow-line"></i>
-                <span>{{course.availableSpaces}}</span>
-              </div>
-
-              <div class=" mx-2">
-                <button @click="addToCart(course)" href="#" class="block rounded-md mx-6 bg-red-600 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  <i class="ri-shopping-cart-line"></i>
-                </button>
-              </div>
-            </div>
-
+      <div class="grid grid-cols-4 gap-4">
+        <div class="card bg-white shadow-md p-4 rounded-md" v-for="course in pages[currentPage]" :key="course.id">
+          <img :src="course.image || 'https://via.placeholder.com/150'" alt="Course image" class="w-full rounded">
+          <h2 class="text-lg font-semibold mt-2">{{ course.name }}</h2>
+          <p class="text-gray-600 text-sm">{{ course.location }}</p>
+          <p class="text-red-500 font-bold">${{ course.price }}</p>
+          <div class="mt-2 flex justify-between items-center">
+            <span class="text-gray-500 text-sm">Spaces: {{ course.availableSpaces }}</span>
+            <button @click="addToCart(course)" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+              Add to Cart
+            </button>
+          </div>
         </div>
-        <!-- End of card -->
-
-
-      </div>
-      <!-- End of scroll view -->
-        
       </div>
     </section>
 
