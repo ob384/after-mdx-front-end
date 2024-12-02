@@ -1,8 +1,5 @@
 let app = new Vue({
   el: '#app',
-  // data: {
-    //   courseDetails: new Object()
-    // },
     data() {
       return {
         loggedIn: false,

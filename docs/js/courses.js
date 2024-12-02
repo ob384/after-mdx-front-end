@@ -181,10 +181,9 @@ let app = new Vue({
     },
     
     addToCart(course) {
-      // Ensure we're working with a valid course
+
       if (!course) return;
   
-      // Check if spaces are available
       if (course.availableSpaces > 0) {
         // Find if the course is already in cart
         const existingCartItem = this.cart.find(item => item._id === course._id);
