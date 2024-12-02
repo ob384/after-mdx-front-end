@@ -9,35 +9,41 @@ let app = new Vue({
   },
   methods: {
     addToCart(course) {
-      // Check if the course is already in the cart
+      // Ensure we're working with a valid course
+      if (!course) return;
+  
+      // Check if spaces are available
       if (course.availableSpaces > 0) {
         // Find if the course is already in cart
-        const inCart = this.cart.find(item => item.id === course.id);
-        
-        if (inCart) {
-          // If in cart, increase quantity
-          inCart.quantity += 1;
+        const existingCartItem = this.cart.find(item => item._id === course._id);
+  
+        if (existingCartItem) {
+          // If course exists, increment quantity
+          existingCartItem.quantity += 1;
         } else {
-          // If not in cart, add new item with quantity 1
-          this.cart.push({ 
-            ...course, 
-            quantity: 1 
+          // If course is not in cart, add new item
+          this.cart.unshift({
+            _id: course._id,
+            name: course.name,
+            price: course.price,
+            quantity: 1,
+            location: course.location
           });
         }
-        
+  
         // Decrease available spaces
         course.availableSpaces -= 1;
-        
-        // Store updated cart in sessionStorage
+  
+        // Update cart in session storage
         sessionStorage.setItem('cart', JSON.stringify(this.cart));
-        
-        // Optional: Show success message
+  
+        // Optional: Provide feedback
         alert(`${course.name} added to cart!`);
       } else {
-        // Optional: Show error if no spaces available
+        // No spaces available
         alert('Sorry, no spaces available for this course.');
       }
-    }
+    } 
   },
   beforeMount(){
     fetch("https://after-mdx-backend.onrender.com/api/courses/trending").then((res)=>(res.json())).then((d) => this.trendingCourses = [...d]);
