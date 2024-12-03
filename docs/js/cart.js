@@ -6,7 +6,8 @@ let app = new Vue({
       cart: JSON.parse(sessionStorage.getItem('cart')) || [],
       phone: '',
       fullname:'',
-
+      phoneError: "",
+      fullnameError: "",
     }
   },
   methods: {
@@ -28,7 +29,7 @@ let app = new Vue({
     },
     verifyPhone(){
       if (!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(this.phone)) {
-        alert("Please enter a valid phone number")
+        this.phoneError ="Please enter a valid phone number"
         throw new Error("Please enter a valid phone number")
       } 
     },
@@ -45,6 +46,15 @@ let app = new Vue({
       this.verifyPhone()
       this.sendOrder();
     },
+    verifyFullName(){
+      if (this.fullname.length <=6) {
+        this.fullnameError = "Please enter a valid name. Name must have at least six (6) characters"
+        throw new Error("Please enter a valid name. Name must have at least six (6) characters")
+      } else {
+        this.fnameError = ""
+        
+      }
+    }
 
   },
   computed: {
