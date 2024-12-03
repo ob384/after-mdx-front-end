@@ -32,10 +32,20 @@ let app = new Vue({
         throw new Error("Please enter a valid phone number")
       } 
     },
+    sendOrder(){
+      fetch("https://after-mdx-backend.onrender.com/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.checkoutDetails)
+      }).then(alert("Order Succesfull")).catch((alert("Something went wrong")))
+    },
     checkout(){
       this.verifyPhone()
-      event.target.submit()
-    }
+      this.sendOrder();
+    },
+
   },
   computed: {
     totalPrice(){
@@ -58,6 +68,13 @@ let app = new Vue({
       })
       console.log(order)
       return JSON.stringify(order)
+    },
+    checkoutDetails(){
+      return {
+        fullname: this.fullname,
+        phone: this.phone,
+        orderDetails: this.orderObj
+      }
     }
 
   },
