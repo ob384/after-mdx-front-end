@@ -31,7 +31,10 @@ let app = new Vue({
       if (!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(this.phone)) {
         this.phoneError ="Please enter a valid phone number"
         throw new Error("Please enter a valid phone number")
-      } 
+      } else{
+        this.phoneError =""
+
+      }
     },
     sendOrder(){
       fetch("https://after-mdx-backend.onrender.com/checkout", {
