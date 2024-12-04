@@ -43,14 +43,22 @@ let app = new Vue({
           "Content-Type": "application/json",
         },
         body: JSON.stringify(this.checkoutDetails)
-      }).then(alert("Order Succesfull")).catch((alert("Something went wrong")))
+      }).then((res)=>{
+        if (res.ok) {
+          alert("Order Completed")
+          sessionStorage.clear();
+          window.location.href = `${window.location.hostname}`
+        }else{
+          alert("Order Failed")
+        }
+      })
     },
     checkout(){
       this.verifyPhone()
       this.sendOrder();
     },
     verifyFullName(){
-      if (this.fullname.length <=6) {
+      if (this.fullname.length < 6) {
         this.fullnameError = "Please enter a valid name. Name must have at least six characters"
         throw new Error("Please enter a valid name. Name must have at least six characters")
       } else {
