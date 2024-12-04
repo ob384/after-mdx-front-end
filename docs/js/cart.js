@@ -51,7 +51,7 @@ let app = new Vue({
         this.fullnameError = "Please enter a valid name. Name must have at least six (6) characters"
         throw new Error("Please enter a valid name. Name must have at least six (6) characters")
       } else {
-        this.fnameError = ""
+        this.fullameError = ""
         
       }
     }
