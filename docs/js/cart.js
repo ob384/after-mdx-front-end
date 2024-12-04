@@ -47,7 +47,7 @@ let app = new Vue({
         if (res.ok) {
           alert("Order Completed")
           sessionStorage.clear();
-          window.location.href = `${window.location.hostname}/after-mdx-front-end`
+          window.location.href = `${window.location.origin}/after-mdx-front-end`
         }else{
           alert("Order Failed")
         }
