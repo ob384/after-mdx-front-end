@@ -28,7 +28,7 @@ let app = new Vue({
       sessionStorage.setItem('cart', JSON.stringify(this.cart)); // Update session storage
     },
     verifyPhone(){
-      if (!/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(this.phone)) {
+      if (!/^(?:\+230)?(2\d{6}|5\d{7})$/.test(this.phone)) {
         this.phoneError ="Please enter a valid phone number"
         throw new Error("Please enter a valid phone number")
       } else{
